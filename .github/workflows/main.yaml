@@ -1,0 +1,19 @@
+name: CI Workflow
+
+# trigger
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+   name: "Build the Laravel Application"
+   uses: ./github/workflows/build.yaml
+
+  test:
+    needs: [build]
+    name: "Test the Laravel Applicaion"
+    uses: ./github/workflows/test.yaml
