@@ -9,11 +9,13 @@ on:
       - dev
 
 jobs:
-  build:
+  build-version-83:
    name: "Build the Laravel Application"
    uses: ./github/workflows/build.yaml
+   with:
+     version: "8.3"
 
   test:
-    needs: [build]
+    needs: [build-version-83]
     name: "Test the Laravel Applicaion"
     uses: ./github/workflows/test.yaml
