@@ -11,10 +11,10 @@ on:
 jobs:
   build:
    name: "Build the Laravel Application"
-   uses: ./github/workflows/build.yaml
+   uses: ./.github/workflows/build.yaml
    
 
   test:
     needs: [build]
     name: "Test the Laravel Applicaion"
-    uses: ./github/workflows/test.yaml
+    uses: ./.github/workflows/test.yaml
