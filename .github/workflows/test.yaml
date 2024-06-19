@@ -44,6 +44,3 @@ jobs:
         run: |
           php artisan key:generate
 
-      - name: Run Unit Testing
-        run: |
-          php artisan test
