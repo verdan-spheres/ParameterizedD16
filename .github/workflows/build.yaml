@@ -43,5 +43,6 @@ jobs:
           php artisan key:generate
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v2.1.0 
-        env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+         env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
