@@ -1,5 +1,4 @@
 name: QA Workflow
-
 # trigger
 on: workflow_dispatch
 jobs:
