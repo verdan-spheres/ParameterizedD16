@@ -1,0 +1,15 @@
+name: AQ workflow
+
+on: workflow_dispatch
+jobs:
+ 
+  build-version-83:
+   name: "Build the Laravel Application"
+   uses: ./.github/workflows/build.yaml
+   with:
+     version: "8.3"
+  build--version-82:
+    name: "build the laravel Application"
+    uses: ./.github/workflows/build.yaml
+    with:
+     version: "8.2"
