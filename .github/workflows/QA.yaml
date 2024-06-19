@@ -2,7 +2,6 @@ name: QA Workflow
 
 # trigger
 on: workflow_dispatch
-
 jobs:
   build-version-83:
    name: "Build the Laravel Application"
