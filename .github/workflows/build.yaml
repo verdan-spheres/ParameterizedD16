@@ -14,10 +14,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-            # Disabling shallow clone is recommended for improving relevancy of reporting
-         fetch-depth: 0
-
+    
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -41,7 +38,15 @@ jobs:
       - name: Generate the key
         run: |
           php artisan key:generate
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@v2.1.0 
+
+
+      - uses: actions/checkout@v4
         with:
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+         fetch-depth: 0
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@v2.1.0
+        env:
+           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        
