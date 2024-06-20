@@ -12,9 +12,7 @@ jobs:
    uses: ./.github/workflows/build.yaml
    with:
      version: "8.3"
-  build--version-82:
-    name: "build the laravel Application"
-    uses: ./.github/workflows/build.yaml
-    with:
-     version: "8.2"
+   secrets:
+    SONAR_TOKEN: "sdsfdsjfjsdfjisjdfjdsi"
+ 
 
