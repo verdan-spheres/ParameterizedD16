@@ -1,11 +1,9 @@
-name: AQ workflow
+name: QA workflow
 
 on: 
  push:
   branches:
-    -dev
- workflow_dispatch:
-  
+    - dev
   
 jobs:
  
@@ -19,3 +17,4 @@ jobs:
     uses: ./.github/workflows/build.yaml
     with:
      version: "8.2"
+
