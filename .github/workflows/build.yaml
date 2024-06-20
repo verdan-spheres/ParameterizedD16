@@ -68,6 +68,17 @@ jobs:
       - name: dockernize the application
         run: |
           docker build -t reusable .
+
+      - name: Generate tarball from image
+        run: |
+            docker pull reusable
+            docker save -o vuln-image.tar <your-docker-image>
+    
+      - name: Run Trivy vulnerability scanner in tarball mode
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+            input: /github/workspace/vuln-image.tar
+            severity: 'CRITICAL,HIGH'
      
       - name: Login to DockerHub
         uses: docker/login-action@v1
