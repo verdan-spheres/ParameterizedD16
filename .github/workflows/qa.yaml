@@ -1,9 +1,6 @@
 name: QA workflow
 
-on: 
- push:
-  branches:
-    - dev
+on: workflow_dispatch
   
 jobs:
  
