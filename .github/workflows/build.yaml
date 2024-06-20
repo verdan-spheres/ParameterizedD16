@@ -1,11 +1,11 @@
 name: build workf_flow
+
 on: 
  workflow_call:
   inputs:
    version:
     required: true
     type: string 
-
 
 jobs:
   build:
@@ -49,6 +49,13 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@v2.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Run Trivy vulnerability scanner in fs mode
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+            scan-type: 'fs'
+            scan-ref: '.'
+            trivy-config: trivy.yaml
       
        
 
