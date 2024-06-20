@@ -1,6 +1,12 @@
 name: AQ workflow
 
-on: workflow_dispatch
+on: 
+ push:
+  branches:
+    -dev
+ workflow_dispatch:
+  
+  
 jobs:
  
   build-version-83:
